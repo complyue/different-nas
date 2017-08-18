@@ -1,0 +1,11 @@
+0 0 * * * date >> /var/log/autosnap.log 2>&1
+
+1 0 * * * /opt/custom/bin/zfs-snapshot-all automated_daily   >> /var/log/autosnap.log 2>&1
+2 0 * * 0 /opt/custom/bin/zfs-snapshot-all automated_weekly  >> /var/log/autosnap.log 2>&1
+3 0 1 * * /opt/custom/bin/zfs-snapshot-all automated_monthly >> /var/log/autosnap.log 2>&1
+4 0 1 1 * /opt/custom/bin/zfs-snapshot-all automated_yearly  >> /var/log/autosnap.log 2>&1
+
+5 0 * * * /opt/custom/bin/zfs-prune-snapshots -p automated_daily_   7d   >> /var/log/autosnap.log 2>&1
+6 0 * * 0 /opt/custom/bin/zfs-prune-snapshots -p automated_weekly_  4w   >> /var/log/autosnap.log 2>&1
+7 0 1 * * /opt/custom/bin/zfs-prune-snapshots -p automated_monthly_ 12M  >> /var/log/autosnap.log 2>&1
+8 0 1 1 * /opt/custom/bin/zfs-prune-snapshots -p automated_yearly_  10y  >> /var/log/autosnap.log 2>&1
