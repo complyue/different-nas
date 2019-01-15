@@ -1,0 +1,3 @@
+
+# check ZFS cache usage (and other RAM usages)
+echo ::memstat | mdb -k
