@@ -1,0 +1,14 @@
+
+Get latest image info list, by opening url:
+
+https://images.joyent.com/images
+
+
+
+Search uuid for desired image in the page.
+
+
+curl -o :uuid.manifest -L https://images.joyent.com/images/:uuid
+
+curl -o :uuid.zfs.gz -L https://images.joyent.com/images/:uuid/file
+
