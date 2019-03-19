@@ -1,0 +1,3 @@
+
+# print summary every 3 seconds. first one is overall from boot, later ones are realtime.
+nicstat -s 3
