@@ -1,0 +1,6 @@
+
+# check nfs sharing settings
+sharectl get nfs
+
+# to be nfs version 3 only
+sharectl set -p server_versmin=3 -p server_versmax=3 nfs
